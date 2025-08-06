@@ -3,7 +3,7 @@ class Meta {
   int metaDiaria;
   int acumulado;
   int feitoHoje;
-
+  
   Meta({
     required this.nome,
     required this.metaDiaria,

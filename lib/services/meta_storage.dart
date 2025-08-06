@@ -27,3 +27,18 @@ class MetaStorage {
     await prefs.setString(_key, json.encode(jsonList));
   }
 }
+
+Future<void> salvarUltimaDataAcesso(DateTime data) async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setString('ultimaDataAcesso', data.toIso8601String());
+}
+
+Future<DateTime?> carregarUltimaDataAcesso() async {
+  final prefs = await SharedPreferences.getInstance();
+  final dataString = prefs.getString('ultimaDataAcesso');
+  if (dataString != null) {
+    return DateTime.tryParse(dataString);
+  }
+  return null;
+}
+

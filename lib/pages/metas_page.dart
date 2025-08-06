@@ -1,18 +1,16 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../models/meta.dart';
 import '../services/meta_storage.dart';
-
 import '../widgets/adicionar_meta.dart';
 import '../widgets/editar_meta.dart';
 import '../widgets/remover_meta.dart';
 
 class MetasPage extends StatefulWidget {
+  const MetasPage({super.key});
   @override
-  _MetasPageState createState() => _MetasPageState();
+  State<MetasPage> createState() => _MetasPageState();
 }
 
 class _MetasPageState extends State<MetasPage> {
@@ -24,6 +22,7 @@ class _MetasPageState extends State<MetasPage> {
     carregarMetas();
   }
 
+
   Future<void> carregarMetas() async {
     metas = await MetaStorage.carregarMetas();
     if (metas.isEmpty) {
@@ -33,7 +32,30 @@ class _MetasPageState extends State<MetasPage> {
         Meta(nome: 'Prancha (min)', metaDiaria: 2, acumulado: 2),
       ];
     }
+
+    final prefs = await SharedPreferences.getInstance();
+    final hojeStr = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final ultimaDataStr = prefs.getString('ultima_data_reset') ?? '';
+
+    if (ultimaDataStr != hojeStr) {
+      _resetDiario();
+      await prefs.setString('ultima_data_reset', hojeStr);
+    }
+
     setState(() {});
+  }
+
+  void _resetDiario() {
+    setState(() {
+      for (var meta in metas) {
+        int pendente = meta.metaDiaria - meta.feitoHoje;
+        if (pendente > 0) {
+          meta.acumulado += pendente;
+        }
+        meta.feitoHoje = 0;
+      }
+    });
+    _salvarMetas();
   }
 
   Future<void> _salvarMetas() async {
@@ -200,7 +222,7 @@ class _MetasPageState extends State<MetasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Metas'),
+        title: Text(''),
         actions: [
           IconButton(
             icon: Icon(Icons.bar_chart),
