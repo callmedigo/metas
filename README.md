@@ -29,8 +29,7 @@ A interface é dividida em duas abas principais:
 Guardar registros diários do que foi feito (quantidade, data).
 Mostrar gráficos semanais/mensais (barra, pizza, linha) para visualizar o progresso.
 
-2. Reset Diário Automático
-A cada novo dia, resetar o feito de Hoje e somar o que não foi feito no acumulado.
+~~2. Reset Diário Automático~~ implementado.
 
 3. Notificações e Lembretes
 Lembretes para o usuário não esquecer de fazer.
@@ -51,5 +50,4 @@ Filtrar e organizar metas por categoria.
 Criar desafios temporários, metas semanais.
 Recompensas virtuais, medalhas, conquistas.
 
-8. Modo Dark/Light
-Alternar tema do app para melhor experiência visual.
+~~8. Modo Dark/Light~~ implementado.

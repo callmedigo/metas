@@ -222,7 +222,7 @@ class _MetasPageState extends State<MetasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text(''), //Espaço embaixo do "metas"
         actions: [
           IconButton(
             icon: Icon(Icons.bar_chart),
