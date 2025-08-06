@@ -1,6 +1,6 @@
 #  App de Metas Diárias
 
-Este é um aplicativo Flutter para acompanhar e gerenciar metas diárias de exercícios. O app permite adicionar, remover e personalizar metas, além de marcar as atividades feitas no dia.
+Aplicativo simples em Flutter para acompanhar e gerenciar metas diárias. O app permite adicionar, remover e personalizar metas, além de marcar as atividades feitas no dia.
 
 ##  Funcionalidades
 
@@ -22,6 +22,7 @@ A interface é dividida em duas abas principais:
 - [Flutter](https://flutter.dev/)
 - Dart
 - shared_preferences (armazenamento local)
+- intl
 
 ## Proximas funcionalidades para implementar
 
@@ -29,10 +30,7 @@ A interface é dividida em duas abas principais:
 Guardar registros diários do que foi feito (quantidade, data).
 Mostrar gráficos semanais/mensais (barra, pizza, linha) para visualizar o progresso.
 
-~~2. Reset Diário Automático~~ implementado.
-
-3. Notificações e Lembretes
-Lembretes para o usuário não esquecer de fazer.
+~~Reset Diário Automático~~ implementado.
 
 4. Interface e UX
 Melhorar visual, usar cores, ícones, animações suaves.
@@ -42,12 +40,4 @@ Tela de boas-vindas/tutorial.
 Salvar dados em Firebase, Google Drive, ou algum backend para não perder dados.
 Sincronizar entre dispositivos.
 
-6. Categorias e Grupos de Exercícios
-Permitir criar categorias.
-Filtrar e organizar metas por categoria.
-
-7. Metas Personalizadas com Desafios
-Criar desafios temporários, metas semanais.
-Recompensas virtuais, medalhas, conquistas.
-
-~~8. Modo Dark/Light~~ implementado.
+~~Modo Dark/Light~~ implementado.
